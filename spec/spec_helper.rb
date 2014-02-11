@@ -1,14 +1,15 @@
 ENV["RACK_ENV"] = 'test'
 
-require './server'
+require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
 
-Capybara.app =  Sinatra::Application
+Capybara.app = Sinatra::Application
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
+  config.filter_run :focus
   config.order = 'random'
 
   config.before(:suite) do
