@@ -1,15 +1,18 @@
 require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
+require 'sinatra/partial'
 require './lib/link'
 require './lib/tag'
 require './lib/user'
+
 
 require_relative 'helpers/application'
 require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'my unique encryption key'
+set :partial_template_engine, :erb
 use Rack::Flash
 
 get '/' do
@@ -67,6 +70,13 @@ post '/users' do
     else
     flash.now[:errors] = @user.errors.full_messages
     erb :"users/new"
-  end  
+  end 
 end
+
+delete '/sessions' do
+  flash[:notice] = "Goodbye!"
+  session[:user_id] = nil
+  redirect to('/')
+end 
+
 
