@@ -81,7 +81,7 @@ header #user_links {
   }
 
 
-#links-container {
+#container {
   background-color: white;
   margin: 40px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -92,27 +92,41 @@ header #user_links {
   display: none;  /* makes all links invisible */
 }
 
+
+.link .star {
+  /* absolute but relative to the first parent that's relative */
+    position: absolute;
+    font-size: 24px;
+    right: 5px;
+    top: 5px;
+    color: yellowgreen;
+    cursor: pointer;
+}
+.link .star.solid {
+    opacity: 0; /* not hidden (nonexistent), just invisible */
+  }
+
+
 .link {
   background-color: #EEE;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 15px 10px;
+  position: relative; /*necessary for positioning of the stars*/
 }
 
-  .link a.title {
-    letter-spacing: 1px;    
+.link a.title {
+    letter-spacing: 2px;    
   }
-
-  .link .description {
+.link .description {
     margin: 10px inherit;
   }
-
-  .link .source {
+.link .source {
     float: right;
     font-size; 12px
   }
 
-  #notice {
+#notice {
   text-align: center;
   margin: 5px;
   padding: 5px;
