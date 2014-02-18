@@ -89,6 +89,10 @@ header #user_links {
 }
 
 .link {
+  display: none;  /* makes all links invisible */
+}
+
+.link {
   background-color: #EEE;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
