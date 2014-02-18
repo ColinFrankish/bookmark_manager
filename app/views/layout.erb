@@ -12,6 +12,11 @@
 			<%= yield %>
 		</div>	
 		<%= partial :footer %>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<!-- // <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+		<script src="/javascript/application.js"></script>
 	</body>
 
 </html>
+<!-- generally better to put the script calls to jquery just before the end of the body in html,
+rather than in the head section. This gives a performance boost. 
