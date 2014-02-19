@@ -24,14 +24,27 @@ function addFavouritesHandler() {
 	});
 }
 
+function prepareFormHandler() {
+  var form = $('#container #ajax-form form');
+  form.submit(function(event) {    
+    var addLink = function(data) {
+      $('#links').prepend(data);
+    }
+    var data = form.serialize();
+    $.post(form.attr('action'), data, addLink);
+    event.preventDefault();
+  })
+}
 
-function prepareNewFormsHandler () {
+
+function prepareRemoteFormsHandler () {
 	$('.add-link, .new-user, new-session').click(function(event) {
 		$.get($(this).attr("href"), function(data) {
 			if ($('#container #ajax-form').length == 0) {
         $("#container").prepend("<div id='ajax-form'></div>");
       }
       $('#container #ajax-form').html(data);
+      prepareFormHandler();
 
 		});
 		event.preventDefault();
@@ -41,6 +54,6 @@ function prepareNewFormsHandler () {
 
 $(function() {
 	addFavouritesHandler();
-	prepareNewFormsHandler();
+	prepareRemoteFormsHandler();
 })
 
