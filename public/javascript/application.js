@@ -25,10 +25,14 @@ function addFavouritesHandler() {
 }
 
 
-function prepareNewLinkHandler () {
-	$('.add-link').click(function(event) {
+function prepareNewFormsHandler () {
+	$('.add-link, .new-user, new-session').click(function(event) {
 		$.get($(this).attr("href"), function(data) {
-			console.log(data);
+			if ($('#container #ajax-form').length == 0) {
+        $("#container").prepend("<div id='ajax-form'></div>");
+      }
+      $('#container #ajax-form').html(data);
+
 		});
 		event.preventDefault();
 	});
@@ -37,6 +41,6 @@ function prepareNewLinkHandler () {
 
 $(function() {
 	addFavouritesHandler();
-	prepareNewLinkHandler();
+	prepareNewFormsHandler();
 })
 
