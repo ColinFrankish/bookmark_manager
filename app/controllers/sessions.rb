@@ -10,7 +10,7 @@ post '/sessions' do
     redirect to('/')
   else
     flash[:errors] = ["The email or password are incorrect"]
-    erb :"sessions/new"
+    erb :"sessions/new", :layout => !request.xhr?
   end
 
 end

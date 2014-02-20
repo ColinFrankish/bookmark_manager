@@ -82,6 +82,7 @@ header {
 
   header #user-links #welcome-message {
     font-size: 14px;
+    display: inline-block;
   }
 
 
@@ -90,6 +91,12 @@ header {
   margin: 40px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding: 10px;
+}
+
+@media(max-width: 320px) {
+  #container {
+    margin: 10px;
+  }
 }
 
 .link {
